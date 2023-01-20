@@ -1,0 +1,45 @@
+set_global_assignment -name FAMILY "Cyclone V"
+set_global_assignment -name TOP_LEVEL_ENTITY DiagramaDeBloquesFinal
+
+set_global_assignment -name LAST_QUARTUS_VERSION "19.1.0 Lite Edition"
+set_global_assignment -name DEVICE 5CSEBA6U23I7L
+set_global_assignment -name MIN_CORE_JUNCTION_TEMP "-40"
+set_global_assignment -name MAX_CORE_JUNCTION_TEMP 100
+set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 200 LFPM AIRFLOW"
+set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
+set_global_assignment -name BDF_FILE DiagramaDeBloquesFinal.bdf
+set_global_assignment -name VHDL_FILE Conv_Bin_BCD.vhd
+set_global_assignment -name VHDL_FILE Reg_Sost.vhd
+set_global_assignment -name VHDL_FILE MUX2a1.vhd
+set_global_assignment -name VHDL_FILE MSSPRUEBA.vhd
+set_global_assignment -name VHDL_FILE Contador_up.vhd
+set_global_assignment -name VHDL_FILE Comparador.vhd
+set_global_assignment -name MIF_FILE anillosbienchi.mif
+set_global_assignment -name QIP_FILE RAMchica.qip
+set_global_assignment -name VHDL_FILE Restador.vhd
+set_global_assignment -name VHDL_FILE Sumador.vhd
+set_global_assignment -name VHDL_FILE Bufferr.vhd
+set_global_assignment -name VHDL_FILE Dec7seg.vhd
+set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
+set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
+set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
+set_global_assignment -name VECTOR_WAVEFORM_FILE Waveform3.vwf
+set_location_assignment PIN_V11 -to CLK
+set_location_assignment PIN_Y24 -to Resetn
+set_location_assignment PIN_AG14 -to decdis[6]
+set_location_assignment PIN_AE6 -to decdis[5]
+set_location_assignment PIN_AE24 -to decdis[4]
+set_location_assignment PIN_AD20 -to decdis[3]
+set_location_assignment PIN_AD17 -to decdis[2]
+set_location_assignment PIN_AC22 -to decdis[1]
+set_location_assignment PIN_AB23 -to decdis[0]
+set_location_assignment PIN_E8 -to Mostrar
+set_location_assignment PIN_D11 -to Start
+set_location_assignment PIN_AD5 -to unidis[6]
+set_location_assignment PIN_AE23 -to unidis[5]
+set_location_assignment PIN_AD23 -to unidis[4]
+set_location_assignment PIN_D12 -to unidis[3]
+set_location_assignment PIN_C12 -to unidis[2]
+set_location_assignment PIN_AC23 -to unidis[1]
+set_location_assignment PIN_Y19 -to unidis[0]
+set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

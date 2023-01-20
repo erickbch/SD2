@@ -1,0 +1,79 @@
+library ieee;
+use ieee.std_logic_1164.all;
+entity MSSPRUEBA is
+      port (Clk, Resetn, Start, End_j, AmenB, End_i: in std_logic;
+		      Enj,Ldj,s1,Eni,Ldi,EnReg,Sel,EnReg2,Sel3,Sel2,Done: out std_logic);
+		  
+end MSSPRUEBA;
+
+ architecture solv of MSSPRUEBA is
+ type estado is (A,B,C,D,E,F,G,H,I,J,K,L);
+ signal y: estado; 
+ signal Entradas: std_logic_vector(3 downto 0); 
+ signal Salidas: std_logic_vector(10 downto 0);
+ 
+ begin
+       entradas <= start & End_j & AmenB & End_i;
+		 
+		 enj <= Salidas(10); Ldj <= Salidas(9); S1 <= Salidas(8); Eni <= Salidas(7); Ldi <= Salidas(6); EnReg <= Salidas(5); 
+		 Sel <= Salidas(4); EnReg2 <= Salidas(3); Sel3 <= Salidas(2); Sel2 <= Salidas(1); Done <= salidas(0);
+		 
+		 process(Clk, Resetn)
+		 begin
+		     
+			  if Resetn = '0' then y <= A; 
+			  elsif (Clk' event and Clk = '1') then
+			       case y is
+					      
+							when A => if Entradas = "1000" then y <= B; else y <= A; end if;
+							
+							when B => if Entradas = "1000" then y <= B; else y <= C; end if;
+							
+							when C => if Entradas = "0100" then y <= L; 
+							          elsif Entradas = "0000" then y<= D;end if; 
+							          
+							when D => y <= E; 
+					
+							when E => if Entradas = "0010" then y <= I; else y <= F; end if;
+							
+							when F => y <= G; 
+							
+							when G => y <= H;
+							
+							when H => y <= I;
+						
+							when I => if Entradas = "0001" then y <= J; else y <= K; end if;
+							
+							when J => y <= C; 
+							
+							when K =>  y <= E;
+							when L =>  y <= A; 
+			
+					  end case;
+			   end if; 
+			end process; 	
+			
+process👍
+begin 
+     Salidas <= "00000000000";
+	  case y is
+		    when A => Salidas <= "11000000000";
+			
+			 when D => Salidas <= "00011101000";
+			 			 
+			 when F => Salidas <= "00100010100"; 
+			 
+			 when G => salidas <= "00100000110"; 
+			    
+			 
+			 when H => Salidas <= "00000100000";
+			 
+			 
+			 when J => Salidas <= "10000000000";
+			 when K => Salidas <= "00010000000";
+			 when L => Salidas <= "11000000001";
+			
+			 when others => Salidas <= "00000000000";
+	   end case; 
+end process; 
+end solv;

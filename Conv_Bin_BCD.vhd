@@ -1,0 +1,18 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.STD_LOGIC_ARITH.ALL;
+use IEEE.STD_LOGIC_UNSIGNED.ALL;
+
+entity Conv_Bin_BCD is
+port(  bin: in  STD_LOGIC_VECTOR (4 downto 0);
+       decena,unidad: out STD_LOGIC_VECTOR(3 downto 0) ); 
+ end Conv_Bin_BCD;
+ 
+architecture comportamiento of Conv_Bin_BCD is
+signal salida: std_logic_vector(7 downto 0);
+begin
+	salida <= ("000"&bin) when (bin<=9) else (("000"&bin)+"00000110");
+	
+	decena <= salida(7 downto 4);
+	unidad <= salida(3 downto 0);	
+end comportamiento;
